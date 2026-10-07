@@ -1,6 +1,6 @@
 # Car Price Prediction using Deep Learning
 
-This project aims to predict car prices using a deep learning model. The dataset used in this project contains various features of cars, including both categorical and numerical variables. It uses different DL models for the task, then chooses the best model based on the accuracy scores.
+This project predicts car prices using deep learning. The dataset contains both categorical and numerical car features. The notebook compares several models using mean squared error and R-squared.
 
 ## Table of Contents
 
@@ -13,14 +13,26 @@ This project aims to predict car prices using a deep learning model. The dataset
 
 ## Installation
 
-The required libraries for this project are listed in the `requirements.txt` file. To install these libraries, use the following command:
+Use Python 3.11 or newer that is supported by TensorFlow 2.21. The dependencies are listed in the repository-root `requirements.txt` file. From the repository root, create and activate a virtual environment, then install them:
 
 ```bash
+python -m venv .venv
+# Windows PowerShell:
+.\.venv\Scripts\Activate.ps1
+# macOS/Linux:
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ## Usage
-All the codes are provided in the 'CarPricePrediction.py' file.
+
+Start JupyterLab from the repository root so the notebook can find the dataset:
+
+```bash
+jupyter lab
+```
+
+Open `Model/Car_Price_Prediction_with_DL.ipynb` and run the cells in order. Charts are saved in `Images/` and trained models are saved in `Model/`.
 
 ## Visualizations
 
@@ -61,7 +73,7 @@ Compilation: Adam optimizer, mean squared error loss function.
 
 Simple RNN (Recurrent Neural Network):
 
-Architecture: One input layer, one hidden layer with 64 neurons and ReLU activation, one hidden layer with 32 neurons and ReLU activation, and one output layer with linear activation.
+Architecture: A SimpleRNN layer with 64 units, a dense layer with 32 ReLU units, and a linear output layer. The feature vector is reshaped into a sequence for the recurrent layer.
 Compilation: Adam optimizer, mean squared error loss function.
 
 MLP (Multi-Layer Perceptron):
@@ -71,7 +83,7 @@ Compilation: Adam optimizer, mean squared error loss function.
 
 LSTM (Long Short-Term Memory):
 
-Architecture: One input layer, one LSTM layer with 64 neurons and ReLU activation, and one output layer with linear activation.
+Architecture: An LSTM layer with 64 units and a linear output layer.
 Compilation: Adam optimizer, mean squared error loss function.
 
 ## Results
