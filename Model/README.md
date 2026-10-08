@@ -13,7 +13,7 @@ This project predicts car prices using deep learning. The dataset contains both 
 
 ## Installation
 
-Use Python 3.11 or newer that is supported by TensorFlow 2.21. The dependencies are listed in the repository-root `requirements.txt` file. From the repository root, create and activate a virtual environment, then install them:
+Use Python 3.11 or newer. From the repository root, create and activate a virtual environment, then install the web app dependencies:
 
 ```bash
 python -m venv .venv
@@ -24,15 +24,30 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
-
-Start JupyterLab from the repository root so the notebook can find the dataset:
+To run the web app locally:
 
 ```bash
+streamlit run streamlit_app.py
+```
+
+To run the deep-learning notebook instead, install its additional dependencies and start JupyterLab:
+
+```bash
+pip install -r requirements-notebook.txt
 jupyter lab
 ```
 
 Open `Model/Car_Price_Prediction_with_DL.ipynb` and run the cells in order. Charts are saved in `Images/` and trained models are saved in `Model/`.
+
+## Deploy the web app
+
+The app can be hosted for free on [Streamlit Community Cloud](https://share.streamlit.io/):
+
+1. Push the repository to GitHub.
+2. Sign in to Streamlit Community Cloud with GitHub and select **Create app**.
+3. Choose this repository, the `main` branch, and `streamlit_app.py` as the app file, then deploy.
+
+The root `requirements.txt` contains only the web app dependencies, so the deployment does not need to install TensorFlow or JupyterLab. The dashboard trains and caches a scikit-learn prediction pipeline from the included dataset, then shows the estimate and interactive charts together. The notebook's deep-learning models remain available separately.
 
 ## Visualizations
 
